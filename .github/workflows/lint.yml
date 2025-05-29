@@ -28,4 +28,4 @@ jobs:
         run: uv run --only-group dev ruff format --check .
 
       - name: Run type check
-        run: uv run --only-group dev mypy -p exparso
+        run: uv run --only-group dev mypy exparso
