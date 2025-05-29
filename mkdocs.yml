@@ -1,0 +1,38 @@
+site_name: Exparso
+site_dir: site
+docs_dir: docs
+repo_url: https://github.com/InsightEdgeJP/exparso
+nav:
+  - 🏠 Home: index.md
+  - 🤖 Algorithm: argo.md
+  - 🛠️ Prompt: prompts.md
+  - 📊 Evaluation:
+    - 🧑‍💻 Method: eval-method.md
+    - 💾 Dataset: eval-dataset.md
+    - 📈 Result: eval-result.md
+  - 🏛️ OSS:
+      - 🤝 Contributing: contributing.md
+  - 🔗 Links:
+      - Report: https://docs.google.com/presentation/d/10j4X4ubeY-nHvuWmKlLYm2WUvd6cumRd?rtpof=true&usp=drive_fs
+
+markdown_extensions:
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_div_format
+
+extra_css:
+  - https://unpkg.com/mermaid@8.0.0/dist/mermaid.css
+
+extra_javascript:
+  - https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js
+
+theme:
+  name: material
+  palette:
+    primary: "blue"
+    accent: "idingo"

@@ -1,0 +1,67 @@
+name: integration test
+
+on:
+  workflow_call:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - exparso/**/*.py
+      - tests/**/*.py
+      - ".github/workflows/test.yml"
+      - ".github/workflows/integrate.yml"
+      - ".github/workflows/evaluate.yml"
+
+jobs:
+  lint:
+    uses: ./.github/workflows/lint.yml
+
+  unittest_3_12:
+    needs: lint
+    uses: ./.github/workflows/test.yml
+    with:
+      PYTHON_VERSION: "3.12"
+      TEST_PATH: unit
+    secrets: inherit
+  
+  unittest_3_11:
+    needs: lint
+    uses: ./.github/workflows/test.yml
+    with:
+      PYTHON_VERSION: "3.11"
+      TEST_PATH: unit
+    secrets: inherit
+
+  unittest_3_10:
+    needs: lint
+    uses: ./.github/workflows/test.yml
+    with:
+      PYTHON_VERSION: "3.10"
+      TEST_PATH: unit
+    secrets: inherit
+
+  integrate_3_12:
+    needs: [unittest_3_12, unittest_3_11, unittest_3_10]
+    uses: ./.github/workflows/test.yml
+    with:
+      PYTHON_VERSION: "3.12"
+      TEST_PATH: integrate
+    secrets: inherit
+
+  integrate_3_11:
+    needs: [unittest_3_12, unittest_3_11, unittest_3_10]
+    uses: ./.github/workflows/test.yml
+    with:
+      PYTHON_VERSION: "3.11"
+      TEST_PATH: integrate
+    secrets: inherit
+
+  integrate_3_10:
+    needs: [unittest_3_12, unittest_3_11, unittest_3_10]
+    uses: ./.github/workflows/test.yml
+    with:
+      PYTHON_VERSION: "3.10"
+      TEST_PATH: integrate
+    secrets: inherit
+

@@ -1,0 +1,67 @@
+name: test
+
+on:
+  workflow_call:
+    inputs:
+      PYTHON_VERSION:
+        required: true
+        type: string
+      TEST_PATH:
+        required: true
+        type: string
+
+jobs:
+  test:
+    permissions:
+      id-token: write
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - name: libreoffice
+        if: inputs.TEST_PATH == 'integrate'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libreoffice
+
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      
+      - name: delete .python-version
+        run: |
+          rm -rf .python-version
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ inputs.PYTHON_VERSION }}
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "0.5.20"
+
+      - name: Read all secrets and set them to environment variables
+        if: inputs.TEST_PATH == 'integrate'
+        env:
+          ALL_SECRETS: ${{ toJSON(secrets) }}
+        run: |
+          # 全てのシークレットをループして環境変数に設定
+          echo "$ALL_SECRETS" | jq -r 'to_entries[] | "\(.key)=\(.value)"' | \
+          while IFS= read -r line; do
+            # シークレットのキーと値を取得
+            key=$(echo "$line" | cut -d'=' -f1)
+            value=$(echo "$line" | cut -d'=' -f2-)
+            # 環境変数として設定
+            echo "$key=$value" >> $GITHUB_ENV
+          done
+
+      - name: Authenticate to Google Cloud
+        if: inputs.TEST_PATH == 'integrate'
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+
+      - name: Run pytest
+        run: uv run --group test pytest tests/${{ inputs.TEST_PATH }}
+
