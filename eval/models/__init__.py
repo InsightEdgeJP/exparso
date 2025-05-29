@@ -51,7 +51,6 @@ class Repository:
 
 
 class Parser:
-
     @abstractmethod
     def parse(self, file: FileModel) -> ParseDataModel:
         pass

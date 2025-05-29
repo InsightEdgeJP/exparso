@@ -19,7 +19,6 @@ from eval.usecase import Evaluator
 
 
 def run_eval(queries: list[QueryModel], models: list[Parser], llm: BaseChatModel) -> pd.DataFrame:
-
     pattern: list[tuple[Parser, QueryModel]] = [(m, q) for m in models for q in queries]
     df = pd.DataFrame(columns=["model", "file_id", "query", "expected", "answer", "rank"])
     repository = CacheRepository()

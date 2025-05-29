@@ -23,7 +23,6 @@ class ParseCoreService:
         user_context: Optional[str],
         config: Optional[RunnableConfig] = None,
     ) -> None:
-
         self.parser = parse_document(llm, prompt=prompt)
         self.context_updater = update_context(llm, prompt=prompt)
         self.judge_document = judge_document_type(llm, prompt=prompt)
@@ -34,7 +33,6 @@ class ParseCoreService:
         self,
         contents: list[LoadPageContents],
     ) -> Document:
-
         parsed_contents: list[PageContents] = []
 
         for i, page in enumerate(contents):

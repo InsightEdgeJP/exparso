@@ -4,20 +4,15 @@ default_language_version:
 repos:
 -   repo: local
     hooks:
-    -   id: black
-        name: black
-        entry: uv run black --diff --check
+    -   id: format
+        name: format
+        entry: uv run ruff format
         language: system
         files: .*\.(py|ipynb)$
-    -   id: isort
-        name: isort
-        entry: uv run isort --check-only
+    -   id: lint
+        name: lint
+        entry: uv run ruff check
         language: system
-        files: .*\.(py|ipynb)$
-    -   id: flake8
-        name: flake8
-        entry: uv run flake8 --count --show-source --statistics
-        language: system        
         files: .*\.(py|ipynb)$
     -   id: unittest
         name: unittest

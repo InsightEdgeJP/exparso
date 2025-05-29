@@ -46,7 +46,6 @@ class Evaluator:
 
 
 def evaluation(query: str, expected: str, context: str, client: BaseChatModel) -> tuple[str, int]:
-
     class RagResult(BaseModel):
         answer: str
 

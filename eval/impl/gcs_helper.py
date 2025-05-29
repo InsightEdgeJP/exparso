@@ -7,7 +7,6 @@ from google.cloud import storage
 
 class GCSHelper:
     def __init__(self, bucket_name: str):
-
         self.storage_client = storage.Client()
         self.bucket = self.storage_client.bucket(bucket_name)
 

@@ -1,6 +1,6 @@
 [project]
 name = "exparso"
-version = "0.0.1"
+version = "0.0.2"
 description = "Analyzing and parsing documents"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -18,13 +18,10 @@ default-groups = []
 
 [dependency-groups]
 dev = [
-    "black>=24.10.0",
-    "flake8>=7.1.1",
-    "flake8-pyproject>=1.2.3",
-    "isort>=5.13.2",
     "pip-licenses>=5.0.0",
     "pre-commit>=4.0.1",
-    "pylance>=0.18.2",
+    "pylance>=0.28.0",
+    "ruff>=0.11.4",
 ]
 test = [
     "pytest>=8.3.3",
@@ -60,27 +57,16 @@ docs = [
     "pymdown-extensions>=10.11.2",    
 ]
 
-[tool.black]
+[tool.ruff]
 line-length = 120
-include = '\.pyi?$'
-exclude = '''
-/(
-    \.venv
-  | \.git
-)
-'''
+indent-width = 4
 
-[tool.flake8]
-exclude = [".venv", ".git", "__pycache__"]
-ignore = ["E203", "W503", "W504", "E701", "E704"]
-max-line-length = 120
-
-[tool.isort]
-profile = 'black'
-line_length = 120
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+ignore = []
 
 [tool.pytest.ini_options]
-pythonpath = "parse_docs"
+pythonpath = "exparso"
 testpaths = "tests"
 addopts = "-s"
 env_files = [".env"]
