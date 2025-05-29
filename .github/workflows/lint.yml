@@ -4,8 +4,7 @@ on:
   workflow_call:
 
 env:
-  SRC_DIR: .
-  PYTHON_VERSION: 3.12  
+  PYTHON_VERSION: 3.12
 
 jobs:
   lint:
@@ -22,11 +21,11 @@ jobs:
         with:
           version: "0.5.20"
 
-      - name: Run black
-        run: uv run --only-group dev black $SRC_DIR --diff --check
+      - name: Run lint
+        run: uv run ruff check .
 
-      - name: Run isort
-        run: uv run --only-group dev isort $SRC_DIR --check-only
+      - name: Run format check
+        run: uv run ruff format --check .
 
-      - name: Run flake8
-        run: uv run --only-group dev flake8 $SRC_DIR --count --show-source --statistics
+      - name: Run type check
+        run: uv run mypy exparso

@@ -1,6 +1,5 @@
 # 📑 Exparso
 
-[![test](https://github.com/InsightEdgeJP/exparso/actions/workflows/integrate.yml/badge.svg?branch=main)](https://github.com/InsightEdgeJP/exparso/actions/workflows/integrate.yml)
 ![python](https://img.shields.io/badge/python-%20%203.10%20|%203.11%20|%203.12-blue)
 
 本ライブラリは、画像を含むドキュメントのパースを行うためのライブラリです。

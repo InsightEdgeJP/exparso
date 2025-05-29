@@ -5,7 +5,6 @@ from exparso.model import HumanMessage, Image, SystemMessage
 
 
 def test_chat_anthropic_vertex(chat_anthropic_vertex: ChatAnthropicVertex):
-
     model = generate_claude_llm(chat_anthropic_vertex)
     response = model.invoke(
         [

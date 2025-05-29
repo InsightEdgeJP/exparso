@@ -12,7 +12,7 @@ from ..model import Cost, HumanMessage, LlmModel, LlmResponse, SystemMessage
 def convert_message(
     messages: Sequence[HumanMessage | SystemMessage],
 ) -> Sequence[_HumanMessage | _SystemMessage]:
-    retval = []
+    retval: list[_HumanMessage | _SystemMessage] = []
     for m in messages:
         if isinstance(m, HumanMessage):
             if m.image:

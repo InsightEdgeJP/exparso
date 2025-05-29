@@ -3,7 +3,6 @@ from typing import Sequence
 from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.messages import AIMessage
 from langchain_core.messages import HumanMessage as _HumanMessage
-from langchain_core.messages import SystemMessage as _SystemMessage
 from langchain_core.runnables import RunnableLambda
 
 from ..model import Cost, HumanMessage, LlmModel, LlmResponse, SystemMessage
@@ -11,10 +10,10 @@ from ..model import Cost, HumanMessage, LlmModel, LlmResponse, SystemMessage
 
 def convert_message(
     messages: Sequence[HumanMessage | SystemMessage],
-) -> Sequence[_HumanMessage | _SystemMessage]:
+) -> Sequence[_HumanMessage | str]:
     MAX_IMAGE_LENGTH = 384.0  # low resolution解析のための画像サイズ
 
-    retval = []
+    retval: list[str | _HumanMessage] = []
     for m in messages:
         if isinstance(m, HumanMessage):
             if m.image:

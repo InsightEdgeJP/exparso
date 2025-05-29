@@ -51,7 +51,6 @@ class ParseDocument(BaseModel):
 
 
 class InputParseDocument:
-
     def __init__(
         self,
         page: LoadPageContents,

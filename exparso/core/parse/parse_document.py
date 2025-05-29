@@ -24,14 +24,13 @@ def parse_document(llm: LlmModel, prompt: CorePrompt) -> Runnable[InputParseDocu
         )
 
     def create_messages(input_parse_document: InputParseDocument) -> list[SystemMessage | HumanMessage]:
-
         system_prompt = generate_system_message(input_parse_document.document_type, input_parse_document.context.text())
         human_prompt = HumanMessage(
             content=prompt.extract_human_message(input_parse_document.page.contents),
             image=input_parse_document.page.image,
         )
 
-        messages = [system_prompt, human_prompt]
+        messages: list[SystemMessage | HumanMessage] = [system_prompt, human_prompt]
         return messages
 
     def generate_system_message(types: list[DocumentTypeEnum], context: str) -> SystemMessage:

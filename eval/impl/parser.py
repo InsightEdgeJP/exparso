@@ -16,7 +16,6 @@ logger = logging.getLogger(__name__)
 
 
 class Exparso(Parser):
-
     def __init__(self, model: BaseChatModel, model_name: str):
         self.llm_model_name = model_name
         self.model = model
@@ -47,7 +46,6 @@ class Exparso(Parser):
 
 
 class Pymupdf4llm(Parser):
-
     def parse(self, file: FileModel) -> ParseDataModel:
         md_text = pymupdf4llm.to_markdown(file.path)
         retval = ParseDataModel(file_id=file.id, model="pymupdf4llm", document=[md_text])
@@ -59,7 +57,6 @@ class Pymupdf4llm(Parser):
 
 
 class AzureDocumentIntelligence(Parser):
-
     def parse(self, file: FileModel) -> ParseDataModel:
         credential = DefaultAzureCredential()
         client = DocumentIntelligenceClient(endpoint=settings.azure_document_endpoint, credential=credential)
@@ -80,7 +77,6 @@ class AzureDocumentIntelligence(Parser):
 
 
 class Docling(Parser):
-
     def parse(self, file: FileModel) -> ParseDataModel:
         converter = DocumentConverter()
         result = converter.convert(file.path)

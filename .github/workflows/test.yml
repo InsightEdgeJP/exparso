@@ -26,7 +26,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           lfs: true
-      
+
       - name: delete .python-version
         run: |
           rm -rf .python-version
@@ -63,5 +63,4 @@ jobs:
           service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
 
       - name: Run pytest
-        run: uv run --group test pytest tests/${{ inputs.TEST_PATH }}
-
+        run: uv run pytest tests/${{ inputs.TEST_PATH }}
