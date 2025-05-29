@@ -1,0 +1,1015 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="next" href="argo/">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>Exparso</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="idingo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#parse-doc-library" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Exparso" class="md-header__button md-logo" aria-label="Exparso" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Exparso
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              🏠 Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/InsightEdgeJP/exparso" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Exparso" class="md-nav__button md-logo" aria-label="Exparso" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Exparso
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/InsightEdgeJP/exparso" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    🏠 Home
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    🏠 Home
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 ドキュメントのパース
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📝 ドキュメントのパース">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    <span class="md-ellipsis">
+      Background
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Goal
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      📑 対応ファイル
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔥 LLM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      📥 インストール方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📥 インストール方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libreoffice" class="md-nav__link">
+    <span class="md-ellipsis">
+      LibreOffice
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      ライブラリのインストール
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 使用方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 使用方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      プロンプトのカスタマイズ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      アウトプット
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="argo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    🤖 Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="prompts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    🛠️ Prompt
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    📊 Evaluation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            📊 Evaluation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="eval-method/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    🧑‍💻 Method
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="eval-dataset/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    💾 Dataset
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="eval-result/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    📈 Result
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🏛️ OSS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            🏛️ OSS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contributing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    🤝 Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🔗 Links
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            🔗 Links
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.google.com/presentation/d/10j4X4ubeY-nHvuWmKlLYm2WUvd6cumRd?rtpof=true&usp=drive_fs" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Report
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 ドキュメントのパース
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📝 ドキュメントのパース">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    <span class="md-ellipsis">
+      Background
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Goal
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      📑 対応ファイル
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔥 LLM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      📥 インストール方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📥 インストール方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libreoffice" class="md-nav__link">
+    <span class="md-ellipsis">
+      LibreOffice
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      ライブラリのインストール
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 使用方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 使用方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      プロンプトのカスタマイズ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      アウトプット
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="parse-doc-library">Parse Doc Library</h1>
+<p><img alt="python" src="https://img.shields.io/badge/python-%20%203.10%20|%203.11%20|%203.12-blue" /></p>
+<p>本ライブラリは、画像を含むドキュメントのパースを行うためのライブラリです。
+テキストとして出力することで、従来のベクトル検索や全文検索での利用を可能することを目的とします。</p>
+<h2 id="_1">📝 ドキュメントのパース</h2>
+<h3 id="background">Background</h3>
+<ul>
+<li>多くのドキュメントには、グラフや画像のような非テキストが含まれる</li>
+<li>これらのドキュメントをRAGのような検索システムに組み込むためには、テキストドメインに変更する必要がある(画像やテキストを同一のベクトルにする技術はまだ有効ではない)</li>
+<li>MLLMの進展に伴い実装が容易化したものの、まだ各案件で真剣に取り組みには工数がかかる部分ではある</li>
+</ul>
+<h3 id="goal">Goal</h3>
+<ol>
+<li>ドキュメントの全文抽出を行うツールを提供</li>
+<li>ツールの評価を行い、継続的に改善するためのCI/CDを構築</li>
+<li>ツールを簡単に導入できるように構築</li>
+<li>実行時のAPIコストの算出</li>
+</ol>
+<p><img alt="architecture" src="architecture.drawio.svg" /></p>
+<h2 id="_2">📑 対応ファイル</h2>
+<table>
+<thead>
+<tr>
+<th>コンテンツタイプ</th>
+<th>拡張子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>📑 ドキュメント</strong></td>
+<td>PDF, PowerPoint</td>
+</tr>
+<tr>
+<td><strong>🖼️ 画像</strong></td>
+<td>JPEG, PNG, BMP</td>
+</tr>
+<tr>
+<td><strong>📝 テキストデータ</strong></td>
+<td>テキストファイル, Markdown</td>
+</tr>
+<tr>
+<td><strong>📊 表データ</strong></td>
+<td>Excel, CSV</td>
+</tr>
+</tbody>
+</table>
+<h2 id="llm">🔥 LLM</h2>
+<table>
+<thead>
+<tr>
+<th>クラウドベンダー</th>
+<th>モデル</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Azure</td>
+<td>GPT</td>
+</tr>
+<tr>
+<td>Google Cloud</td>
+<td>Claude, Gemini</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_3">📥 インストール方法</h2>
+<h3 id="libreoffice">LibreOffice</h3>
+<p>Officeファイルをテキストに変換するために、LibreOfficeをインストールします。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Ubuntu</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libreoffice
+
+<span class="c1"># Mac</span>
+brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>libreoffice
+</code></pre></div>
+<h3 id="_4">ライブラリのインストール</h3>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>exparso
+</code></pre></div>
+<h2 id="_5">💡 使用方法</h2>
+<p><code>parse_document</code> 関数を利用して、ドキュメントをパースします。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">exparso</span><span class="w"> </span><span class="kn">import</span> <span class="n">parse_document</span>
+
+<span class="c1"># For AzureChatOpenAI</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">langchain_openai</span><span class="w"> </span><span class="kn">import</span> <span class="n">AzureChatOpenAI</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">getpass</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="k">if</span> <span class="s2">&quot;AZURE_OPENAI_API_KEY&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;AZURE_OPENAI_API_KEY&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span>
+        <span class="s2">&quot;Enter your AzureOpenAI API key: &quot;</span>
+    <span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;AZURE_OPENAI_ENDPOINT&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;https://YOUR-ENDPOINT.openai.azure.com/&quot;</span>
+<span class="n">llm_model</span> <span class="o">=</span> <span class="n">AzureChatOpenAI</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o&quot;</span><span class="p">)</span>
+
+<span class="c1"># For GoogleChatOpenAI</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">vertexai</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">langchain_google_vertexai</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChatVertexAI</span>
+<span class="n">vertexai</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">&quot;YOUR_PROJECT&quot;</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="s2">&quot;us-central1&quot;</span><span class="p">)</span> <span class="c1"># Default の認証情報を利用</span>
+<span class="n">llm</span> <span class="o">=</span> <span class="n">ChatVertexAI</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;gemini-1.5-pro-002&quot;</span><span class="p">)</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="n">parse_document</span><span class="p">(</span>
+      <span class="n">path</span><span class="o">=</span><span class="s2">&quot;path/to/document.pdf&quot;</span><span class="p">,</span>
+      <span class="n">model</span><span class="o">=</span><span class="n">llm_model</span><span class="p">,</span>
+      <span class="n">context</span><span class="o">=</span><span class="s2">&quot;このドキュメントは...&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
+<p><code>model</code>は<code>LangChain</code>の<code>BaseChatModel</code>を継承したクラスで、各LLMベンダーに合わせて、認証情報を設定してください。</p>
+<ul>
+<li><a href="https://python.langchain.com/docs/integrations/chat/azure_chat_openai/">AzureChatOpenAI</a></li>
+<li><a href="https://python.langchain.com/docs/integrations/chat/google_vertex_ai_palm/">ChatVertexAI</a></li>
+</ul>
+<h4 id="_6">プロンプトのカスタマイズ</h4>
+<p><a href="prompts/">プロンプトのカスタマイズ</a>を参照ください。</p>
+<h3 id="_7">アウトプット</h3>
+<p><code>Document</code>クラスのインスタンスが返されます。<code>Document</code>のプロパティは以下になります。</p>
+<div class="mermaid">classDiagram
+    class Document {
+        +list&lt;PageContents&gt; contents
+        +Cost cost
+    }
+
+    class PageContents {
+        +str contents
+        +int page_number
+    }
+
+    class Cost {
+        +int input_token
+        +int output_token
+        +str llm_model_name
+    }
+
+    Document --&gt; PageContents : has
+    Document --&gt; Cost : has</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>
