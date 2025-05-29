@@ -1,0 +1,63 @@
+name: deploy library
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  check_conditions:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.check_conditions.outputs.version }}
+      exist_tag: ${{ steps.check_conditions.outputs.exist_tag }}
+    steps:
+      - uses: actions/checkout@v4      
+      - name: Check conditions
+        id: check_conditions
+        run: |
+          export VERSION=v$(grep -m1 'version = ' pyproject.toml | sed -E "s/version = ['\"]([^'\"]+)['\"].*/\1/")
+          # タグと一致するかの確認
+          if [[ ${{ github.ref_name }} != $VERSION ]]; then
+            # Actionを終了する  
+            echo "exist_tag=true" >> $GITHUB_OUTPUT
+          else
+            echo "exist_tag=false" >> $GITHUB_OUTPUT
+            echo "version=$VERSION" >> $GITHUB_OUTPUT
+          fi
+
+  deploy-repo:
+    permissions:
+      id-token: write
+      contents: write
+    runs-on: ubuntu-latest
+    needs: check_conditions
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "0.5.20"
+
+      - name: Deploy Artifact Repo
+        run: |
+          uv build
+          # ToDo
+          # Deploy to PyPI
+          # uv run --only-group deploy twine upload \
+          #   dist/*
+
+      - name: Build the documentation
+        run: |
+          uv run --only-group docs mkdocs build        
+      
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: site
+          publish_branch: gh-pages
