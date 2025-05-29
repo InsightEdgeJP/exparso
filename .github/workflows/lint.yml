@@ -4,7 +4,6 @@ on:
   workflow_call:
 
 env:
-  SRC_DIR: .
   PYTHON_VERSION: 3.12
 
 jobs:
@@ -23,7 +22,10 @@ jobs:
           version: "0.5.20"
 
       - name: Run lint
-        run: uv run --only-group dev ruff check $SRC_DIR
+        run: uv run --only-group dev ruff check .
 
       - name: Run format check
-        run: uv run --only-group dev ruff format --check $SRC_DIR
+        run: uv run --only-group dev ruff format --check .
+
+      - name: Run type check
+        run: uv run --only-group dev mypy -p exparso

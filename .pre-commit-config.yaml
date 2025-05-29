@@ -14,6 +14,11 @@ repos:
         entry: uv run ruff check
         language: system
         files: .*\.(py|ipynb)$
+    -   id: type-check
+        name: type-check
+        entry: uv run mypy exparso --explicit-package-bases
+        language: system
+        pass_filenames: false
     -   id: unittest
         name: unittest
         language: system

@@ -10,7 +10,7 @@ from ..model import Cost, HumanMessage, LlmModel, LlmResponse, SystemMessage
 
 
 def convert_message(messages: Sequence[HumanMessage | SystemMessage]) -> Sequence[_HumanMessage | _SystemMessage]:
-    retval = []
+    retval: list[_HumanMessage | _SystemMessage] = []
     MAX_IMAGE_LENGTH = 384.0
     for m in messages:
         if isinstance(m, HumanMessage):
