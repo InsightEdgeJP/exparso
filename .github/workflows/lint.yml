@@ -22,10 +22,10 @@ jobs:
           version: "0.5.20"
 
       - name: Run lint
-        run: uv run --only-group dev ruff check .
+        run: uv run ruff check .
 
       - name: Run format check
-        run: uv run --only-group dev ruff format --check .
+        run: uv run ruff format --check .
 
       - name: Run type check
-        run: uv run --only-group dev mypy exparso
+        run: uv run mypy exparso
