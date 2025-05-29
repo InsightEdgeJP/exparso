@@ -3,7 +3,7 @@ name: deploy library
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
   check_conditions:
@@ -12,7 +12,7 @@ jobs:
       version: ${{ steps.check_conditions.outputs.version }}
       exist_tag: ${{ steps.check_conditions.outputs.exist_tag }}
     steps:
-      - uses: actions/checkout@v4      
+      - uses: actions/checkout@v4
       - name: Check conditions
         id: check_conditions
         run: |
@@ -43,18 +43,17 @@ jobs:
         with:
           version: "0.5.20"
 
-      - name: Deploy Artifact Repo
+      - name: Deploy PyPI Repo
         run: |
           uv build
-          # ToDo
-          # Deploy to PyPI
-          # uv run --only-group deploy twine upload \
-          #   dist/*
+          uv run --only-group deploy twine upload dist/* -r pypi \
+            -u ${{ secrets.PYPI_USERNAME }} \
+            -p ${{ secrets.PYPI_API_TOKEN }}
 
       - name: Build the documentation
         run: |
-          uv run --only-group docs mkdocs build        
-      
+          uv run --only-group docs mkdocs build
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
