@@ -44,6 +44,8 @@ class ParseCoreService:
             # 画像認識が必要ない場合は余計な処理を行わない
             if DocumentTypeEnum.TEXT_ONLY in document_type.types or not document_type.types:
                 logger.debug("Document Type is Text Only")
+                # テキストのみの場合でも基本的な内容は保持する
+                parsed_contents.append(PageContents.from_load_data(page))
                 continue
 
             input_parse_document = InputParseDocument(
