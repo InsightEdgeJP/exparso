@@ -3,6 +3,7 @@ from langchain_core.language_models.chat_models import BaseChatModel
 from ..model import LlmModel
 from .claude import generate_claude_llm
 from .gemini import generate_gemini_llm
+from .ollama import generate_ollama_llm
 from .openai import generate_openai_llm
 
 
@@ -19,5 +20,7 @@ class LlmFactory:
             return generate_claude_llm(model)
         elif "ChatVertexAI" in model_name:
             return generate_gemini_llm(model)
+        elif "ChatOllama" in model_name:
+            return generate_ollama_llm(model)
         else:
             raise ValueError(f"Unsupported model: {model_name}")

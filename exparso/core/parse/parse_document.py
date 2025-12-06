@@ -1,8 +1,10 @@
+import json
 import logging
+from typing import Any
 
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.runnables import Runnable, RunnableLambda, RunnableParallel, RunnablePassthrough
-from pydantic import BaseModel
+from pydantic import BaseModel, ValidationError
 
 from ...model import HumanMessage, LlmModel, LlmResponse, PageContents, SystemMessage
 from ..prompt import CorePrompt
@@ -16,7 +18,7 @@ def parse_document(llm: LlmModel, prompt: CorePrompt) -> Runnable[InputParseDocu
         response = args[0]["response"]
         input_parse_document = args[0]["passthrough"]
         assert isinstance(response, LlmResponse) and isinstance(input_parse_document, InputParseDocument)
-        answer = _Answer.model_validate(response.content)
+        answer = _parse_llm_answer(response.content)
         input_parse_document.context.cost += response.cost
         return ParseDocument(
             new_page=PageContents(contents=answer.output, page_number=input_parse_document.page.page_number),
@@ -58,3 +60,40 @@ def parse_document(llm: LlmModel, prompt: CorePrompt) -> Runnable[InputParseDocu
 
 class _Answer(BaseModel):
     output: str
+
+
+def _parse_llm_answer(content: Any) -> _Answer:
+    try:
+        return _Answer.model_validate(content)
+    except ValidationError as exc:
+        normalized = _normalize_answer_payload(content)
+        if normalized is None:
+            raise exc
+        logger.warning("Coerced non-string output from LLM response: %s", content)
+        return _Answer.model_validate(normalized)
+
+
+def _normalize_answer_payload(content: Any) -> dict | None:
+    if not isinstance(content, dict):
+        return None
+
+    if "output" not in content:
+        return None
+
+    coerced = _coerce_output_to_string(content.get("output"))
+    if coerced is None:
+        return None
+
+    normalized = dict(content)
+    normalized["output"] = coerced
+    return normalized
+
+
+def _coerce_output_to_string(value: Any) -> str | None:
+    if value is None:
+        return ""
+    if isinstance(value, str):
+        return value
+    if isinstance(value, (dict, list)):
+        return json.dumps(value, ensure_ascii=False)
+    return str(value)

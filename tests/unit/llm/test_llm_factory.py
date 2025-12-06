@@ -3,6 +3,7 @@ import os
 import vertexai
 from langchain_google_vertexai import ChatVertexAI
 from langchain_google_vertexai.model_garden import ChatAnthropicVertex
+from langchain_ollama import ChatOllama
 from langchain_openai import AzureChatOpenAI, ChatOpenAI
 
 from exparso.llm.llm_factory import LlmFactory
@@ -41,3 +42,10 @@ def test_chat_vertextai():
     llm = ChatVertexAI(model_name="dummy-model")
     model = LlmFactory.create(llm)
     assert model
+
+
+def test_chat_ollama():
+    model = ChatOllama(model="dummy")
+    assert model.__class__.__name__ == "ChatOllama"
+    llm = LlmFactory.create(model)
+    assert llm

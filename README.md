@@ -53,3 +53,14 @@ text = parse_document(path="path/to/document.pdf", model=llm_model)
 | ---------------- | ------------------------------------------------------------------------------------------------------------------- |
 | Azure            | ChatGPT(`gpt-4o`, `gpt-4o-mini`)                                                                                    |
 | Google Cloud     | Claude(`claude-3.7-sonnet`,`claude-3.5-sonnet`), Gemini(`gemini-2.0-flash`,`gemini-1.5-flash-*`,`gemini-2.0-pro-*`) |
+## ローカル版
+
+```
+from exparso import parse_document
+from langchain_ollama import ChatOllama
+
+llm = ChatOllama(model="llama3.2", num_predict=8192)
+doc = parse_document("tests/data/s11771-012-1284-y.pdf", model=llm)
+print(doc)
+
+```

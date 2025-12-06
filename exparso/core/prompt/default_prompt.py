@@ -21,6 +21,7 @@ JAPANESE_CORE_PROMPT = CorePrompt(
 - 画像に存在しない内容は回答しないでください。
 - Document Type はデータを読み込みときの参考情報として提供されます。
 - Document Context はドキュメントの参考情報として提供されます。
+- 出力は {format_instruction} で指定された JSON のみを返してください。前後に説明や余分なテキストを追加しないでください。
 
 # Document Type
 
@@ -150,6 +151,7 @@ Please write out the content accurately, staying faithful to the given image con
 - Don't hallucinate the content that doesn't exist in the image.
 - Document Text is provided for reference.
 - Document Context is provided for reference.
+- Respond strictly with the JSON specified by {format_instruction}. Do not prepend or append any prose outside the JSON.
 
 # Document Type
 
