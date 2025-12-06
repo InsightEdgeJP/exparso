@@ -268,3 +268,7 @@ result
 ~*.xlsx
 
 .vscode
+
+local_test
+
+tests/local_data
