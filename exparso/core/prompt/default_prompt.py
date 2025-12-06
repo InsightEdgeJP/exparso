@@ -64,18 +64,21 @@ JAPANESE_CORE_PROMPT = CorePrompt(
     table_prompt="""
 ## Table
 
-- テーブル内の情報をマークダウン形式で記述してください。
-- 出力にテーブルの概要を追加してください。
+- まずテーブル全体の概要（目的、期間、レコード数など）を2〜3文で記述してください。
+- 続けて、注目すべき指標・傾向・外れ値・欠損値・比較関係などの洞察を箇条書きで列挙してください。
+- 最後に、入力データをマークダウン形式の表として再掲してください。列の順序は元データに合わせてください。
 
 ### Example
 **Input**: 名前と年齢が含まれるテーブル。
 **Output**:
-このテーブルは2人の名前と年齢を示しています。
+このテーブルは2人の名前と年齢を示しており、Alice が最年少 (25)、Bob が30歳です。
+- Alice は25歳でエンジニアです。
+- Bob は30歳でデザイナーです。
 
-| Name  | Age |
-|-------|-----|
-| Alice | 25  |
-| Bob   | 30  |
+| Name  | Age | Occupation |
+|-------|-----|------------|
+| Alice | 25  | Engineer   |
+| Bob   | 30  | Designer   |
 
 """,
     flowchart_prompt="""
@@ -193,19 +196,22 @@ A mandatory training session must be completed by the applicant before final app
     table_prompt="""
 ## Table
 
-- Please describe the information in the table in markdown format.
-- Add summary of the table in the output.
+- Start with 2-3 sentences summarizing what the table represents (goal, timeframe, number of records, etc.).
+- Follow with bullet points that highlight notable metrics, trends, outliers, missing values, or comparisons between rows/columns.
+- Reproduce the data as a Markdown table at the end. Preserve the original column order.
 
 ### Example
 
-**Input**: A table contains the age and name.
+**Input**: A table contains the age, name, and occupation.
 **Output**:
-This table shows the name and age of two people.
+This table lists two people along with their ages and occupations. Alice is younger (25) than Bob (30).
+- Alice is a 25-year-old engineer.
+- Bob is a 30-year-old designer.
 
-| Name  | Age |
-|-------|-----|
-| Alice | 25  |
-| Bob   | 30  |
+| Name  | Age | Occupation |
+|-------|-----|------------|
+| Alice | 25  | Engineer   |
+| Bob   | 30  | Designer   |
 
 """,
     flowchart_prompt="""

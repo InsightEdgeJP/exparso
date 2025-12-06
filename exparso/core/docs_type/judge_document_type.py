@@ -62,7 +62,12 @@ def judge_document_type(
 
 def no_judge() -> Runnable[LoadPageContents, DocumentType]:
     def default_type(page: LoadPageContents) -> DocumentType:
-        return DocumentType(types=[], cost=Cost.zero_cost())
+        types: list[DocumentTypeEnum] = []
+        if page.tables:
+            types.append(DocumentTypeEnum.TABLE)
+        else:
+            types.append(DocumentTypeEnum.TEXT_ONLY)
+        return DocumentType(types=types, cost=Cost.zero_cost())
 
     return RunnableLambda(default_type)
 

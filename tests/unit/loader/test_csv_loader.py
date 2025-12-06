@@ -8,6 +8,10 @@ def test_csv_loader():
     assert len(pages) == 1
     assert pages[0].page_number == 0
     assert pages[0].image is None
+    assert (
+        pages[0].contents
+        == "| Name | Age | Occupation |\n| --- | --- | --- |\n| Alice | 30 | Engineer |\n| Bob | 25 | Designer |\n| Charlie | 35 | Manager |"
+    )
     assert pages[0].tables == [
         [
             ["Name", "Age", "Occupation"],
