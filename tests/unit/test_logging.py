@@ -2,17 +2,10 @@ import logging
 from pathlib import Path
 
 from exparso import parse_document
+from exparso import _DEPENDENCY_LOGGER_NAMESPACES
 
 
-LOGGER_NAMESPACES = (
-    "exparso",
-    "pdfminer",
-    "pdfplumber",
-    "PIL",
-    "openpyxl",
-    "langchain_core",
-    "tenacity",
-)
+LOGGER_NAMESPACES = ("exparso", *_DEPENDENCY_LOGGER_NAMESPACES)
 
 
 class _DummyLoader:
