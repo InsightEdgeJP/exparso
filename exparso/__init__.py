@@ -12,6 +12,27 @@ from .model import Document
 
 logger = logging.getLogger(__name__)
 
+_DEPENDENCY_LOGGER_NAMESPACES = (
+    "pdfminer",
+    "pdfplumber",
+    "PIL",
+    "openpyxl",
+    "langchain_core",
+    "tenacity",
+)
+
+
+def _configure_logging(log_level: Optional[int], include_dependency_logs: bool) -> None:
+    if log_level is None:
+        return
+
+    namespaces = ["exparso"]
+    if include_dependency_logs:
+        namespaces.extend(_DEPENDENCY_LOGGER_NAMESPACES)
+
+    for namespace in namespaces:
+        logging.getLogger(namespace).setLevel(log_level)
+
 
 def parse_document(
     path: str,
@@ -19,6 +40,8 @@ def parse_document(
     context: Optional[str] = None,
     prompt: CorePrompt = JAPANESE_CORE_PROMPT,
     config: Optional[RunnableConfig] = None,
+    log_level: Optional[int] = None,
+    include_dependency_logs: bool = False,
 ) -> Document:
     """ドキュメントをMLLMによって読み込む
 
@@ -27,9 +50,12 @@ def parse_document(
         model (BaseChatModel): langchain's BaseChatModel
         context (str): ユーザーコンテキスト
         config (dict, optional): LLM Input 設定. Defaults to None.
+        log_level (int, optional): exparso に適用するログレベル. Defaults to None.
+        include_dependency_logs (bool, optional): 依存ライブラリのログにも同じログレベルを適用するか. Defaults to False.
     Returns:
         Document: ドキュメントの情報
     """
+    _configure_logging(log_level=log_level, include_dependency_logs=include_dependency_logs)
 
     # ファイルが存在しない場合はエラーを出力
     if not os.path.exists(path):

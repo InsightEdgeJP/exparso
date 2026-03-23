@@ -64,6 +64,7 @@ pip install exparso
 
 ```python
 from exparso import parse_document
+import logging
 
 # For AzureChatOpenAI
 from langchain_openai import AzureChatOpenAI
@@ -86,6 +87,31 @@ text = parse_document(
       path="path/to/document.pdf",
       model=llm_model,
       context="このドキュメントは..."
+)
+```
+
+ログレベルを制御したい場合は、`log_level` と `include_dependency_logs` を利用できます。
+
+```python
+from exparso import parse_document
+from langchain_openai import AzureChatOpenAI
+import logging
+
+llm_model = AzureChatOpenAI(model="gpt-4o")
+
+# Exparso 本体のログだけを ERROR 以上にする
+text = parse_document(
+    path="path/to/document.pdf",
+    model=llm_model,
+    log_level=logging.ERROR,
+)
+
+# Exparso と依存ライブラリのログをまとめて ERROR 以上にする
+text = parse_document(
+    path="path/to/document.pdf",
+    model=llm_model,
+    log_level=logging.ERROR,
+    include_dependency_logs=True,
 )
 ```
 
