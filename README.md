@@ -1,5 +1,10 @@
 # 📑 Exparso
 
+> ## ⚠️ アーカイブ済み — 保守終了
+>
+> 本ライブラリは保守を終了しました。更新・不具合修正・サポートは行いません。本番利用は非推奨です（最終版 `v0.0.4`）。
+> This library is archived and no longer maintained.
+
 ![python](https://img.shields.io/badge/python-%20%203.10%20|%203.11%20|%203.12-blue)
 
 本ライブラリは、画像を含むドキュメントのパースを行うためのライブラリです。
